@@ -1,0 +1,26 @@
+<link rel="import" href="../../libs/polymer/polymer.html">
+<link rel="import" href="../../libs/core-ajax/core-ajax.html">
+
+<polymer-element name="profile-card" attributes="foo">
+    <template>
+        <div id="container">
+            <p>This is a profile card</p>
+            <div>
+                <core-ajax url="../../profile" auto handleAs="json" response="{{res}}"></core-ajax>
+                Name: {{res.name}} | Age: {{res.age}} | Email: {{res.email}} | {{foo}}
+            </div>
+        </div>
+        <style>
+            #container {
+                border: 1px solid black;
+            }
+        </style>
+    </template>
+    <script>
+        Polymer({
+            ready: function() {
+                console.log('Profile card component loaded');
+            }
+        });
+    </script>
+</polymer-element>
